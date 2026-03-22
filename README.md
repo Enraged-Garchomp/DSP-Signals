@@ -26,6 +26,8 @@ pip install matplotlib
 ##Example: 
 
 <img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/a9b9604d-4b56-48cd-8bed-ba0f7c4c9e84" />
+
+
 This is 200 samples of a sine wave (frequency = 2) plotted with this program. 
 
 ##Future Work
