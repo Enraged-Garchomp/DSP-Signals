@@ -2,14 +2,14 @@ import math
 
 #Signal for y = 1
 def constant_signal(N, number):
-    """Creates constant signal of 1"""
+    """Creates constant signal of number"""
     signal = [number for _ in range(N)]
 
     return signal
 
 #Impulse signal
 def impulse_signal(N, number):
-    """Creates Impulse Signal of 1 and 0"""
+    """Creates an impulse signal with the given amplitude at n = 0."""
     signal = [number if n == 0 else 0 for n in range(N)]
 
     return signal
@@ -34,18 +34,20 @@ def add_signals(x, y):
 
     return new_signal
 
-def one_signal(type, N, f):
+def one_signal(signal_type, N, f):
     """Creates one signal with sampling number N"""
-    if type in ["sine", "cosine"]:
-        if type == "sine":
+    if signal_type in ["sine", "cosine"]:
+        if signal_type == "sine":
             signal = sine_signal(N, f)
         else:
             signal = cosine_signal(N, f)
     else:
-        if type == "linear":
+        if signal_type == "constant":
             signal = constant_signal(N, f)
-        else:
+        elif signal_type == "impulse":
             signal = impulse_signal(N, f)
+        else:
+            raise ValueError("Signal type not supported")
     return signal
 
 def two_signals(type1, type2, N, f1, f2):
